@@ -3,16 +3,128 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@drawable/custom_shape_rectangle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.Pantalla.Home.Presenter.MainActivity"
     android:layout_gravity="center"
     >
+    <ImageView
+        android:id="@+id/menuIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/homemenu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"/>
 
-    <include layout="@layout/card_dog"
-        android:id="@+id/includeCardDog"
+    <TextView
+
+        android:id="@+id/titleSeach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/orange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menuIcon"
+        />
+
+    <TextView
+
+        android:id="@+id/titleFriend"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friend"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/titleSeach"
+        app:layout_constraintTop_toBottomOf="@id/menuIcon"
 
         />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btRandom"
+        android:text="Aleatorio"
+        android:textAllCaps="false"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/custom_shape_circle_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleSeach"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btDogs"
+        android:text="Perritos"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/custom_shape_circle_black"
+        app:layout_constraintStart_toEndOf="@+id/btRandom"
+        app:layout_constraintTop_toBottomOf="@+id/titleSeach"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btUs"
+        android:text="Nosotros"
+        android:textAllCaps="false"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/custom_shape_circle_white"
+        app:layout_constraintStart_toEndOf="@+id/btDogs"
+        app:layout_constraintTop_toBottomOf="@id/titleSeach"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btSearch"
+        android:text="Buscar"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/custom_shape_circle_orange"
+
+        app:layout_constraintStart_toEndOf="@id/btUs"
+        app:layout_constraintTop_toBottomOf="@id/titleSeach"
+        />
+
+    <TextView
+        android:id="@+id/adopt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adoptame"
+        android:textSize="35sp"
+        android:textColor="@color/orange"
+        app:layout_constraintTop_toBottomOf="@id/btRandom"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="100dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_adopt_reycler"
+        app:layout_constraintTop_toBottomOf="@id/adopt"/>
+
+
+
 
 
 

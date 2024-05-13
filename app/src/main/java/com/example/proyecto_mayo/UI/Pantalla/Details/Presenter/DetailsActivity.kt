@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.proyecto_mayo.R
 
 class DetailsActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
