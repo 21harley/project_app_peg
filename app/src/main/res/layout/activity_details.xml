@@ -5,6 +5,143 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".UI.Pantalla.Details.Presenter.DetailsActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@drawable/detailfondo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/custom_shape_home">
+
+        <TextView
+            android:id="@+id/tvAdopt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adoptar"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24sp"
+            android:layout_marginStart="100dp"/>
+        <ImageView
+            android:id="@+id/ivDogFace"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/dog"
+            app:layout_constraintStart_toEndOf="@id/tvAdopt"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btBowl"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/custom_shape_detail_icon_grey"
+            android:src="@drawable/bowl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAdopt"
+            android:layout_marginTop="32dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btMedical"
+            android:padding="8dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/custom_shape_detail_icon_white"
+            android:src="@drawable/medical"
+            app:layout_constraintTop_toBottomOf="@id/tvAdopt"
+            app:layout_constraintStart_toEndOf="@id/btBowl"
+            android:layout_marginTop="32dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btHome"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/custom_shape_detail_icon_white"
+            android:src="@drawable/home"
+            app:layout_constraintTop_toBottomOf="@id/tvAdopt"
+            app:layout_constraintStart_toEndOf="@id/btMedical"
+            android:layout_marginTop="32dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btPaw"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_shape_detail_icon_white"
+            android:src="@drawable/paw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btHome"
+            app:layout_constraintTop_toBottomOf="@id/tvAdopt" />
+
+        <TextView
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:text="Cualquier Dieta"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btBowl"
+            app:layout_constraintBottom_toTopOf="@id/btBack"
+            />
+
+        <LinearLayout
+            android:id="@+id/btBack"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="start"
+            android:background="@drawable/custom_shape_rectangle_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/custom_button_shape_black"
+                android:text="Volver"
+                android:gravity="center_vertical"
+                android:padding="24dp"
+                android:textSize="25sp"
+
+                android:textStyle="italic"
+                android:textAllCaps="false"
+
+                android:textColor="@color/grey"/>
+            <ImageView
+                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+
+                android:background="@drawable/arrow"/>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

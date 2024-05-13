@@ -5,40 +5,103 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.Pantalla.Random.Presenter.RandomActivity">
+    tools:context=".UI.Pantalla.Random.Presenter.RandomActivity"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginVertical="24dp"
+    >
 
-    <TextView
 
-        android:id="@+id/titleSeach"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_marginStart="24dp"
+
+        <TextView
+
+            android:id="@+id/titleSeach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:textColor="@color/orange"
+            android:textSize="40sp"
+            android:textStyle="bold"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+
+            android:id="@+id/titleFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friend"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/titleSeach"
+             />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btReload"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/paw"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleSeach"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_marginTop="24dp"
-        android:textColor="@color/orange"
-        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="25dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintTop_toBottomOf="@id/btReload"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btBack"
+        >
 
-        />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <TextView
+            android:background="@drawable/perro"/>
+    </androidx.cardview.widget.CardView>
 
-        android:id="@+id/titleFriend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="24dp"
-        android:text="Friend"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
+    <LinearLayout
+        android:id="@+id/btBack"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="start"
+        android:background="@drawable/custom_shape_rectangle_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
 
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/titleSeach"
+            android:background="@drawable/custom_button_shape_black"
+            android:text="Volver"
+            android:gravity="center_vertical"
+            android:padding="24dp"
+            android:textSize="25sp"
+
+            android:textStyle="italic"
+            android:textAllCaps="false"
+
+            android:textColor="@color/grey"/>
+        <ImageView
+            android:layout_marginStart="30dp"
+            android:layout_gravity="center"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:background="@drawable/arrow"/>
 
 
-        app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
