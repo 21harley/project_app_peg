@@ -5,10 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.Pantalla.Home.Presenter.MainActivity"
-    android:layout_gravity="center"
-    >
-
-
+    tools:context=".UI.Pantalla.Random.Presenter.RandomActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
