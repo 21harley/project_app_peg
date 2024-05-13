@@ -9,6 +9,11 @@
     android:layout_gravity="center"
     >
 
+    <include layout="@layout/card_dog"
+        android:id="@+id/includeCardDog"
+
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,34 +27,33 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-//        GlobalScope.launch(Dispatchers.IO) {
-//            try {
-//                val service = DogApiClient.service
-//
-//                // Obtener todas las razas
-//                val allBreedsCall = service.getAllBreeds()
-//                val allBreedsResponse = allBreedsCall.execute().body()
-//                Log.i("Hola", "Todas las razas: ${allBreedsResponse?.message?.keys}")
-//
-//                // Obtener una imagen aleatoria
-//                val randomImageCall = service.getRandomImageBreed("african")
-//                val randomImageResponse = randomImageCall.execute().body()
-//                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse?.message}")
-//
-////                val imageUrl = randomImageResponse?.message
-////
-////                // Cambia al hilo principal para actualizar la UI
-////                withContext(Dispatchers.Main) {
-////                    Glide.with(this@MainActivity)
-////                        .load(imageUrl)
-////                        .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background)) // Opcional: establece una imagen de placeholder mientras se carga la imagen
-////                        .into(binding.includeCardDog.imageView)
-////                }
-//            } catch (e: IOException) {
-//                // Manejar excepciones de red
-//            }
-//        }
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                val service = DogApiClient.service
 
+                // Obtener todas las razas
+                val allBreedsCall = service.getAllBreeds()
+                val allBreedsResponse = allBreedsCall.execute().body()
+                Log.i("Hola", "Todas las razas: ${allBreedsResponse?.message?.keys}")
+
+                // Obtener una imagen aleatoria
+                val randomImageCall = service.getRandomImage()
+                val randomImageResponse = randomImageCall.execute().body()
+                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse?.message}")
+
+                val imageUrl = randomImageResponse?.message
+
+                // Cambia al hilo principal para actualizar la UI
+                withContext(Dispatchers.Main) {
+                    Glide.with(this@MainActivity)
+                        .load(imageUrl)
+                        .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background)) // Opcional: establece una imagen de placeholder mientras se carga la imagen
+                        .into(binding.includeCardDog.imageView)
+                }
+            } catch (e: IOException) {
+                // Manejar excepciones de red
+            }
+        }
 
     }
 }
