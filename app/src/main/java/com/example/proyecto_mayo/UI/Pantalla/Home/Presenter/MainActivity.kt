@@ -31,25 +31,62 @@ class MainActivity : AppCompatActivity() {
             try {
                 val service = DogApiClient.service
 
-                // Obtener todas las razas
-                val allBreedsCall = service.getAllBreeds()
-                val allBreedsResponse = allBreedsCall.execute().body()
-                Log.i("Hola", "Todas las razas: ${allBreedsResponse?.message?.keys}")
+//                // Obtener todas las razas
+//                val allBreedsCall = service.getAllBreeds()
+//                val allBreedsResponse = allBreedsCall.execute().body()
+//                Log.i("Hola", "Todas las razas: ${allBreedsResponse?.message?.keys}")
+//
+//                // Obtener una imagen aleatoria
+//                val randomImageCall = service.getRandomImage()
+//                val randomImageResponse = randomImageCall.execute().body()
+//                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse?.message}")
+//
+//                val imageUrl = randomImageResponse?.message
+//
+//                // Cambia al hilo principal para actualizar la UI
+//                withContext(Dispatchers.Main) {
+//                    Glide.with(this@MainActivity)
+//                        .load(imageUrl)
+//                        .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background)) // Opcional: establece una imagen de placeholder mientras se carga la imagen
+//                        .into(binding.includeCardDog.imageView)
+//                }
+                //dane great
 
-                // Obtener una imagen aleatoria
-                val randomImageCall = service.getRandomImage()
-                val randomImageResponse = randomImageCall.execute().body()
-                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse?.message}")
+//                // Obtener una imagen cantidad n aleatoria
+//                val randomImageCall1 = service.getRandomImage(3)
+//                val randomImageResponse1 = randomImageCall1.execute().body()
+//                Log.i("Hola", "Imagen aleatoriaN: ${randomImageResponse1?.message}")
 
-                val imageUrl = randomImageResponse?.message
+//                // Obtener una imagen de una raza
+//                val randomImageCall2 = service.getRandomImageBreed("african")
+//                val randomImageResponse2 = randomImageCall2.execute().body()
+//                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse2?.message}")
 
-                // Cambia al hilo principal para actualizar la UI
-                withContext(Dispatchers.Main) {
-                    Glide.with(this@MainActivity)
-                        .load(imageUrl)
-                        .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background)) // Opcional: establece una imagen de placeholder mientras se carga la imagen
-                        .into(binding.includeCardDog.imageView)
-                }
+//                // Obtener n imagen de una raza
+//                val randomImageCall3 = service.getRandomImageBreedSize("african",3)
+//                val randomImageResponse3 = randomImageCall3.execute().body()
+//                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse3?.message}")
+
+//                // Obtener lista de sub clase  de una raza
+//                val randomImageCall4 = service.getRandomImageBreedSubList("dane")
+//                val randomImageResponse4 = randomImageCall4.execute().body()
+//                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse4?.message}")
+
+//                // Obtener imagenes de sub clase  de una raza
+//                val randomImageCall5 = service.getRandomImageSubTypeImages("dane","great")
+//                val randomImageResponse5 = randomImageCall5.execute().body()
+//                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse5?.message}")
+
+//                // Obtener una imagen random de sub clase  de una raza
+//                val randomImageCall6 = service.getRandomImageSubTypeImagesRandom("dane","great")
+//                val randomImageResponse6 = randomImageCall6.execute().body()
+//                Log.i("Hola", "Imagen aleatoria: ${randomImageResponse6?.message}")
+
+//                // Obtener una cantidad n de una  sub clase  de una raza
+//                val randomImageCall7 = service.getRandomImageSubTypeImagesSizeRadom("dane","great",3)
+//                val randomImageResponse7 = randomImageCall7.execute().body()
+
+
             } catch (e: IOException) {
                 // Manejar excepciones de red
             }
