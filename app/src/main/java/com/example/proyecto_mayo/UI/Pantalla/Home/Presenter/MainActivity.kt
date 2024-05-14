@@ -84,9 +84,8 @@ class MainActivity : AppCompatActivity() {
         binding.adoptRecycler.adapter = adapterDataAdopt
     }
     private fun adoptOnItemSelected(adopt: DataAdopt) {
-        val intent = Intent(this, DetailsActivity::class.java).also {
-            it.putExtra("dogPhoto", adopt.photo)
-            startActivity(it)
+        var intent = Intent(this, DetailsActivity::class.java)
+        intent.putExtra("img", adopt.photo)
+        startActivity(intent)
         }
     }
-}
