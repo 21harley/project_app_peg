@@ -15,11 +15,9 @@
         >
 
         <ImageView
-
+            android:id="@+id/ivAdopt"
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:background="@drawable/perro"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>

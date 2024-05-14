@@ -13,7 +13,6 @@
         android:id="@+id/menuIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/homemenu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="24dp"
@@ -132,14 +131,16 @@
         app:layout_constraintTop_toBottomOf="@id/btPanel"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="60dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="40dp"
+        android:id="@+id/adoptRecycler"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/item_adopt_reycler"
+        tools:listitem="@layout/item_adopt_recycler"
         app:layout_constraintTop_toBottomOf="@id/adopt"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,14 +4,20 @@ import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.InputBinding
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.proyecto_mayo.Data.Services.DogApi.Class.DogApiClient
+import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
 import com.example.proyecto_mayo.R
+import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.DataAdoptProvider
+import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.adoptAdapter
 import com.example.proyecto_mayo.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -20,6 +26,14 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
+
+    private var adoptList:MutableList<DataAdopt> =
+        DataAdoptProvider.adoptList.toMutableList()
+
+    private lateinit var adapterDataAdopt: adoptAdapter
+
+    private  var adoptllmanager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +68,21 @@ class MainActivity : AppCompatActivity() {
 //                // Manejar excepciones de red
 //            }
 //        }
+
+        initRecyclerView()
+
+    }
+
+    private fun initRecyclerView() {
+        adapterDataAdopt = adoptAdapter(
+            adoptList = adoptList,
+            onClickListener = { adopt -> adoptOnItemSelected(adopt)},
+        )
+        binding.adoptRecycler.layoutManager = adoptllmanager
+        binding.adoptRecycler.adapter = adapterDataAdopt
+    }
+    private fun adoptOnItemSelected(adopt: DataAdopt) {
+        Toast.makeText(this,"List", Toast.LENGTH_SHORT).show()
 
     }
 }
