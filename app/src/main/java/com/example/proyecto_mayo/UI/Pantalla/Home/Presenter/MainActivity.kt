@@ -1,25 +1,17 @@
 package com.example.proyecto_mayo.UI.Pantalla.Home.Presenter
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.InputBinding
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.proyecto_mayo.Data.Services.DogApi.Class.DogApiClient
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
 import com.example.proyecto_mayo.R
-import com.example.proyecto_mayo.UI.Pantalla.Details.Presenter.DetailsActivity
-import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.DataAdoptProvider
-import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.adoptAdapter
 import com.example.proyecto_mayo.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -28,14 +20,6 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
-
-    private var adoptList:MutableList<DataAdopt> =
-        DataAdoptProvider.adoptList.toMutableList()
-
-    private lateinit var adapterDataAdopt: adoptAdapter
-
-    private  var adoptllmanager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,5 +72,6 @@ class MainActivity : AppCompatActivity() {
             it.putExtra("dogPhoto", adopt.photo)
             startActivity(it)
         }
+
     }
 }

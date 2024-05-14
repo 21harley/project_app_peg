@@ -17,70 +17,50 @@ interface DogApiService {
     fun getRandomImage(): Call<RandomImageResponse>
 
     @GET("breeds/image/random/{numRandom}")
-    fun getRandomImage(@Path("numRandom") numRandom: Int): Call<RandomImagesResponse>
+    fun getRandomImage(
+        @Path("numRandom") numRandom: Int
+    ): Call<RandomImagesResponse>
 
     //breed
     @GET("breed/{razaPerro}/images")
-    fun getRandomImageBreed(@Path("razaPerro") razaPerro: String): Call<DogBreedResponse>
+    fun getRandomImageBreed(
+        @Path("razaPerro") razaPerro: String
+    ): Call<DogBreedResponse>
+
+    @GET("breed/{razaPerro}/images/random/{numeroImagenes}")
+    fun getRandomImageBreedSize(
+        @Path("razaPerro") razaPerro: String,
+        @Path("numeroImagenes") numRandom: Int)
+    : Call<DogBreedResponse>
+
+    @GET("breed/{razaPerro}/list")
+    fun getRandomImageBreedSubList(
+        @Path("razaPerro") razaPerro: String
+    ): Call<DogBreedResponse>
+
+    @GET("breed/{razaPerro}/{subTipo}/images")
+    fun getRandomImageSubTypeImages(
+        @Path("razaPerro") razaPerro: String,
+        @Path("subTipo") subTipo: String
+    ): Call<DogBreedResponse>
+
+    @GET("breed/{razaPerro}/{subTipo}/images/random")
+    fun getRandomImageSubTypeImagesRandom(
+        @Path("razaPerro") razaPerro: String,
+        @Path("subTipo") subTipo: String
+    ): Call<RandomImageResponse>
+
+    @GET("breed/{razaPerro}/{subTipo}/ima/random/{numeroImagenes}")
+    fun getRandomImageSubTypeImagesSizeRadom(
+        @Path("razaPerro") razaPerro: String,
+        @Path("subTipo") subTipo: String,
+        @Path("numeroImagenes") numRandom: Int
+    ): Call<DogBreedResponse>
+
 }
 
 /*
 Consultas HTTPS URL raiz : https://dog.ceo/api
-
-breeds/
-
-
-breed/
-
-GET /{raza_perro}/images/random
-{
-    "message": "https://images.dog.ceo/breeds/affenpinscher/n02110627_11798.jpg",
-    "status": "success"
-}
-
-GET /{raza_perro}/images/random/{numero_imagenes}
-{
-    "message": [numero_url_imagenes_raza_perro],
-    "status": "success"
-}
-
-GET /{raza_perro}/{sub_tipo}/list
-{
-    "message": [
-    "afghan",
-    "basset",
-    "blood",
-    "english",
-    "ibizan",
-    "plott",
-    "walker"
-    ],
-    "status": "success"
-}
-
-GET /{raza_perro}/{sub_tipo}/images
-{
-    "message": [
-    "https://images.dog.ceo/breeds/hound-afghan/n02088094_3856.jpg",
-    "https://images.dog.ceo/breeds/hound-afghan/n02088094_732.jpg",
-    "https://images.dog.ceo/breeds/hound-afghan/n02088094_899.jpg"
-    ],
-    "status": "success"
-}
-
-
-GET /{raza_perro}/{sub_tipo}/images/random
-{
-    "message": "https://images.dog.ceo/breeds/hound-afghan/n02088094_3856.jpg",
-    "status": "success"
-}
-
-GET /{raza_perro}/{sub_tipo}/images/random/{numero_radom}
-{
-    "message": [numero_radom_URL_images],
-    "status": "success"
-}
-
 ERROR
 {
     "status":"error",
