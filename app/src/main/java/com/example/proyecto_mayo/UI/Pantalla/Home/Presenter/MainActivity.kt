@@ -20,6 +20,7 @@ import com.example.proyecto_mayo.R
 import com.example.proyecto_mayo.UI.Pantalla.Details.Presenter.DetailsActivity
 import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.DataAdoptProvider
 import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.adoptAdapter
+import com.example.proyecto_mayo.UI.Pantalla.Us.Presenter.UsActivity
 import com.example.proyecto_mayo.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -71,7 +72,19 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
+        init()
+
+    }
+    fun init(){
+        initComponent()
         initRecyclerView()
+    }
+    private fun initComponent(){
+        binding.btUs.setOnClickListener {
+            var intent = Intent(this, UsActivity::class.java)
+
+            startActivity(intent)
+        }
 
     }
 

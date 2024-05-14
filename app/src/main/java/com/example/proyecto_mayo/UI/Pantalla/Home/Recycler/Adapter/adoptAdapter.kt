@@ -9,7 +9,6 @@ import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
 class adoptAdapter(
     private var adoptList: List<DataAdopt>,
     private val onClickListener: (DataAdopt) -> Unit,
-
     ) :
     RecyclerView.Adapter<adoptViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adoptViewHolder {
