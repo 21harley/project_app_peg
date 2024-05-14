@@ -7,22 +7,6 @@ class DataAdoptProvider {
 
     companion object{
 
-        var adoptList = listOf<DataAdopt>(
-
-            DataAdopt(R.drawable.perro),
-            DataAdopt(R.drawable.detailfondo),
-            DataAdopt(R.drawable.selfie),
-            DataAdopt(R.drawable.perro),
-            DataAdopt(R.drawable.detailfondo),
-            DataAdopt(R.drawable.selfie),
-            DataAdopt(R.drawable.perro),
-            DataAdopt(R.drawable.detailfondo),
-            DataAdopt(R.drawable.selfie),
-            DataAdopt(R.drawable.perro),
-            DataAdopt(R.drawable.detailfondo),
-            DataAdopt(R.drawable.selfie),
-
-
-        )
+        var adoptList = listOf<DataAdopt>()
     }
 }

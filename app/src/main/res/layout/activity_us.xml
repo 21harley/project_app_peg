@@ -38,7 +38,7 @@
         app:layout_constraintStart_toEndOf="@id/titleSeach"
         />
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btArrowBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -66,8 +66,6 @@
         android:layout_height="0dp"
         android:layout_marginVertical="16dp"
         android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/members"
         tools:listitem="@layout/item_members_layout" />
@@ -85,8 +83,7 @@
         android:layout_marginTop="30dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        android:orientation="horizontal"
+
         tools:listitem="@layout/item_us_layout"
         android:id="@+id/usRecycler"
         android:layout_width="match_parent"
