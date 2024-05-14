@@ -1,6 +1,7 @@
 package com.example.proyecto_mayo.UI.Pantalla.Home.Presenter
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.InputBinding
@@ -16,6 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.proyecto_mayo.Data.Services.DogApi.Class.DogApiClient
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
 import com.example.proyecto_mayo.R
+import com.example.proyecto_mayo.UI.Pantalla.Details.Presenter.DetailsActivity
 import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.DataAdoptProvider
 import com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter.adoptAdapter
 import com.example.proyecto_mayo.databinding.ActivityMainBinding
@@ -82,7 +84,9 @@ class MainActivity : AppCompatActivity() {
         binding.adoptRecycler.adapter = adapterDataAdopt
     }
     private fun adoptOnItemSelected(adopt: DataAdopt) {
-        Toast.makeText(this,"List", Toast.LENGTH_SHORT).show()
-
+        val intent = Intent(this, DetailsActivity::class.java).also {
+            it.putExtra("dogPhoto", adopt.photo)
+            startActivity(it)
+        }
     }
 }

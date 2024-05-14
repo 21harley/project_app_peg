@@ -8,7 +8,7 @@ import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
 import com.example.proyecto_mayo.databinding.ItemAdoptRecyclerBinding
 
 
-class adoptViewHolder(val view: View) : ViewHolder(view) {
+class adoptViewHolder(val view : View) : ViewHolder(view) {
 
     val binding = ItemAdoptRecyclerBinding.bind(view)
 
@@ -17,6 +17,7 @@ class adoptViewHolder(val view: View) : ViewHolder(view) {
         onClickListener: (DataAdopt) -> Unit,
 
     ){
+
         Glide.with(binding.ivAdopt.context).load(adoptListModel.photo).into(binding.ivAdopt)
 
         itemView.setOnClickListener {
