@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Proyecto_mayo"
         tools:targetApi="31">
         <activity
+            android:name=".UI.Pantalla.Dogs.Presenter.DogsActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.Pantalla.Us.Presenter.UsActivity"
             android:exported="false" />
         <activity
@@ -22,9 +25,6 @@
             android:exported="false" />
         <activity
             android:name=".UI.Pantalla.LookFor.Presenter.LookForActivity"
-            android:exported="false" />
-        <activity
-            android:name=".UI.Pantalla.Dogs.Presenter.DogsActivity"
             android:exported="false" />
         <activity
             android:name=".UI.Pantalla.Details.Presenter.DetailsActivity"

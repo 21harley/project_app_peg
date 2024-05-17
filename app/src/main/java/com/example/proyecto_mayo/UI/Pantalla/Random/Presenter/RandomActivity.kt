@@ -6,8 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyecto_mayo.R
+import com.example.proyecto_mayo.databinding.ActivityMainBinding
+import com.example.proyecto_mayo.databinding.ActivityRandomBinding
 
 class RandomActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

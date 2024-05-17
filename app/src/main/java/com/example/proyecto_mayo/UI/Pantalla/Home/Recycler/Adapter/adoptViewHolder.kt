@@ -6,13 +6,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
 import com.example.proyecto_mayo.R
+import com.example.proyecto_mayo.databinding.ItemAdoptLayoutBinding
 
-import com.example.proyecto_mayo.databinding.ItemAdoptRecyclerBinding
+import com.example.proyecto_mayo.databinding.ItemDogGridLayoutBinding
 
 
 class adoptViewHolder(val view : View) : ViewHolder(view) {
 
-    val binding = ItemAdoptRecyclerBinding.bind(view)
+    val binding = ItemAdoptLayoutBinding.bind(view)
 
     fun render(
         adoptListModel: DataAdopt,
@@ -28,7 +29,7 @@ class adoptViewHolder(val view : View) : ViewHolder(view) {
 //        ).into(binding.ivAdopt)
           Glide.with(binding.ivAdopt.context)
               .load(adoptListModel.url)
-              .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background))
+              .apply(RequestOptions().placeholder(R.drawable.loading))
               .into(binding.ivAdopt)
 
         itemView.setOnClickListener {

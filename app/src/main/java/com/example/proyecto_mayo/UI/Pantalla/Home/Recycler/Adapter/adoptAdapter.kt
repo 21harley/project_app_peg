@@ -13,7 +13,7 @@ class adoptAdapter(
     RecyclerView.Adapter<adoptViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adoptViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return adoptViewHolder(layoutInflater.inflate(R.layout.item_adopt_recycler, parent, false))
+        return adoptViewHolder(layoutInflater.inflate(R.layout.item_adopt_layout, parent, false))
 
     }
 
