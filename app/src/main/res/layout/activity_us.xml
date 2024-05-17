@@ -38,10 +38,10 @@
         app:layout_constraintStart_toEndOf="@id/titleSeach"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btArrowBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/arrow"
         app:layout_constraintTop_toBottomOf="@id/titleSeach"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,9 +51,9 @@
     <TextView
         android:id="@+id/members"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Intengrantes"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:textColor="@color/orange"
         app:layout_constraintTop_toBottomOf="@id/btArrowBack"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,9 +73,9 @@
     <TextView
         android:id="@+id/us"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Sobre Nosotros"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/membersRecycler"
         app:layout_constraintEnd_toEndOf="parent"

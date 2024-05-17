@@ -51,6 +51,7 @@ class UsActivity : AppCompatActivity() {
         }
 
         initRecycler()
+        initComponent()
     }
 
     fun initRecycler(){
@@ -58,9 +59,12 @@ class UsActivity : AppCompatActivity() {
         initUsRecyclerView()
     }
     fun initComponent(){
+
         binding.btArrowBack.setOnClickListener{
-            val intent = Intent(this, ActivityMainBinding::class.java)
-            startActivity(intent)
+            Intent(this, ActivityMainBinding::class.java).also {
+                startActivity(it)
+            }
+
         }
     }
 

@@ -45,7 +45,8 @@
 
 <SearchView
     android:id="@+id/searchBar"
-    android:queryHint="Buscar"
+    android:queryHint="@string/Search"
+    android:iconifiedByDefault="false"
     android:layout_marginVertical="20dp"
     android:layout_marginHorizontal="16dp"
     android:background="@drawable/custom_shape_searchbar"
@@ -79,7 +80,7 @@
     <LinearLayout
         android:id="@+id/btBack"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:gravity="start"
         android:background="@drawable/custom_shape_rectangle_white"
         app:layout_constraintStart_toStartOf="parent"
