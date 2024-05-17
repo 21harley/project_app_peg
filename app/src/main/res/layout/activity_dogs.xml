@@ -5,13 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_shape_home"
     tools:context=".UI.Pantalla.Dogs.Presenter.DogsActivity"
 
     >
 
     <TextView
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
 
         android:id="@+id/titleSeach"
         android:layout_width="wrap_content"
@@ -28,7 +29,8 @@
 
     <TextView
 
-        android:layout_marginTop="32dp"
+
+        android:layout_marginTop="24dp"
         android:id="@+id/titleFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
