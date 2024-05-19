@@ -10,15 +10,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.proyecto_mayo.Data.DTO.DataAdopt
 import com.example.proyecto_mayo.Data.DTO.DataDogs
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateDogs
 import com.example.proyecto_mayo.R
 import com.example.proyecto_mayo.UI.Pantalla.Details.Presenter.DetailsActivity
-import com.example.proyecto_mayo.UI.Pantalla.Dogs.Recycler.Adapter.DataDogsProvider
 import com.example.proyecto_mayo.UI.Pantalla.Dogs.Recycler.Adapter.dogsAdapter
 import com.example.proyecto_mayo.UI.Pantalla.Dogs.ViewModel.DogsViewModel
-import com.example.proyecto_mayo.UI.Pantalla.Home.ViewModel.HomeViewModel
 import com.example.proyecto_mayo.databinding.ActivityDogsBinding
 
 class DogsActivity : AppCompatActivity() {
