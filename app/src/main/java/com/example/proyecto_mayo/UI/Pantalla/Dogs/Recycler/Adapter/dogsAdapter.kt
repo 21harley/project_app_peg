@@ -3,7 +3,7 @@ package com.example.proyecto_mayo.UI.Pantalla.Dogs.Recycler.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataDogs
+import com.example.proyecto_mayo.Data.DTO.DataDogs
 import com.example.proyecto_mayo.R
 
 

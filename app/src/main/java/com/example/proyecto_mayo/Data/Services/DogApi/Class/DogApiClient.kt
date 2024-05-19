@@ -15,25 +15,3 @@ object DogApiClient {
     // Crear instancia del servicio
     val service: DogApiService = retrofit.create(DogApiService::class.java)
 }
-
-//                // Crear instancia de Retrofit
-//                val retrofit = Retrofit.Builder()
-//                    .baseUrl("https://dog.ceo/api/")
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build()
-//
-//                // Crear instancia del servicio
-//                val service = retrofit.create(DogApiService::class.java)
-//
-//                // Realizar la solicitud
-//                val response = service.getAllBreeds().execute()
-//
-//                // Procesar la respuesta en el hilo principal
-//                withContext(Dispatchers.Main) {
-//                    if (response.isSuccessful) {
-//                        val data = response.body()
-//                        // Hacer algo con los datos
-//                    } else {
-//                        // Manejar errores de la solicitud
-//                    }
-//                }

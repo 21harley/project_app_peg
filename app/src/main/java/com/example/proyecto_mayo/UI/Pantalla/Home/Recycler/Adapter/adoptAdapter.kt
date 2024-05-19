@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto_mayo.R
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
+import com.example.proyecto_mayo.Data.DTO.DataAdopt
 
 class adoptAdapter(
     private var adoptList: List<DataAdopt>,

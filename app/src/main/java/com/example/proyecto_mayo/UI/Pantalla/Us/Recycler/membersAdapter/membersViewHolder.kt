@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataMembers
+import com.example.proyecto_mayo.Data.DTO.DataMembers
 
 import com.example.proyecto_mayo.databinding.ItemMembersLayoutBinding
 

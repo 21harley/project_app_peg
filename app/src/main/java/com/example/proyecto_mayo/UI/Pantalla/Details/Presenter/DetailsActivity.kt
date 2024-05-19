@@ -3,6 +3,7 @@ package com.example.proyecto_mayo.UI.Pantalla.Details.Presenter
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,10 +19,6 @@ class DetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailsBinding
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -32,6 +29,9 @@ class DetailsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        supportActionBar?.hide()
+
         binding.detailText.text =
             "Cualquier dieta debe ser apropiada para el perro.a;os. Debe haber agua limpia y fresca disponible en todo momento"
         val data = intent.getStringExtra("dogPhoto")
@@ -43,8 +43,7 @@ class DetailsActivity : AppCompatActivity() {
             .into(binding.ivDog)
 
         binding.btback.setOnClickListener{
-            val intent = Intent(this, ActivityMainBinding::class.java)
-            startActivity(intent)
+            finish()
         }
 
 

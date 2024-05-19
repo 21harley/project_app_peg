@@ -1,7 +1,6 @@
 package com.example.proyecto_mayo.UI.Pantalla.Home.Recycler.Adapter
 
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
-import com.example.proyecto_mayo.R
+import com.example.proyecto_mayo.Data.DTO.DataAdopt
 
 class DataAdoptProvider {
 

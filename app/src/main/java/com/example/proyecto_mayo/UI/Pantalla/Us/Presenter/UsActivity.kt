@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataMembers
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataUs
+import com.example.proyecto_mayo.Data.DTO.DataMembers
+import com.example.proyecto_mayo.Data.DTO.DataUs
 import com.example.proyecto_mayo.R
-import com.example.proyecto_mayo.UI.Pantalla.Details.Presenter.DetailsActivity
 import com.example.proyecto_mayo.UI.Pantalla.Us.Recycler.membersAdapter.DataMembersProvider
 import com.example.proyecto_mayo.UI.Pantalla.Us.Recycler.membersAdapter.membersAdapter
 import com.example.proyecto_mayo.UI.Pantalla.Us.Recycler.usAdapter.DataUsProvider
@@ -61,10 +60,7 @@ class UsActivity : AppCompatActivity() {
     fun initComponent(){
 
         binding.btArrowBack.setOnClickListener{
-            Intent(this, ActivityMainBinding::class.java).also {
-                startActivity(it)
-            }
-
+           finish()
         }
     }
 

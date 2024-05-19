@@ -1,7 +1,6 @@
 package com.example.proyecto_mayo.UI.Pantalla.Us.Recycler.membersAdapter
 
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataAdopt
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataMembers
+import com.example.proyecto_mayo.Data.DTO.DataMembers
 import com.example.proyecto_mayo.R
 
 class DataMembersProvider {

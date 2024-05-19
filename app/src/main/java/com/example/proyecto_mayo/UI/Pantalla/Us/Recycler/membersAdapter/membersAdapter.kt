@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.DataMembers
+import com.example.proyecto_mayo.Data.DTO.DataMembers
 import com.example.proyecto_mayo.R
 
 
