@@ -39,7 +39,8 @@ class DetailsActivity : AppCompatActivity() {
         Log.i("Hola",data.toString())
         Glide.with(binding.ivDog.context)
             .load(data)
-            .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background))
+            .apply(RequestOptions().placeholder(R.drawable.loading1))
+            .fitCenter()
             .into(binding.ivDog)
 
         binding.btback.setOnClickListener{

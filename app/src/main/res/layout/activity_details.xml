@@ -41,7 +41,7 @@
             android:id="@+id/ivDogFace"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/dog"
+            android:background="@drawable/dog_1"
             app:layout_constraintStart_toEndOf="@id/tvAdopt"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="16dp"
@@ -57,7 +57,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/custom_shape_detail_icon_grey"
-            android:src="@drawable/bowl"
+            android:src="@drawable/dog_food_1"
             app:layout_constraintEnd_toStartOf="@+id/btMedical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAdopt" />
@@ -72,7 +72,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/custom_shape_detail_icon_white"
-            android:src="@drawable/medical"
+            android:src="@drawable/doctor_stethoscope"
             app:layout_constraintEnd_toStartOf="@+id/btHome"
             app:layout_constraintStart_toEndOf="@id/btBowl"
             app:layout_constraintTop_toBottomOf="@id/tvAdopt" />
@@ -86,7 +86,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/custom_shape_detail_icon_white"
-            android:src="@drawable/home"
+            android:src="@drawable/home_1"
             app:layout_constraintEnd_toStartOf="@+id/btPaw"
             app:layout_constraintStart_toEndOf="@id/btMedical"
             app:layout_constraintTop_toBottomOf="@id/tvAdopt" />
@@ -101,7 +101,7 @@
             android:layout_marginEnd="24dp"
 
             android:background="@drawable/custom_shape_detail_icon_white"
-            android:src="@drawable/paw"
+            android:src="@drawable/grupo1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btHome"
             app:layout_constraintTop_toBottomOf="@id/tvAdopt" />

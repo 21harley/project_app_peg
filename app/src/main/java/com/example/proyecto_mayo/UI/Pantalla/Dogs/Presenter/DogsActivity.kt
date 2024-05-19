@@ -80,15 +80,17 @@ class DogsActivity : AppCompatActivity() {
             if(statusNewCall==false){
                 call()
                 statusNewCall=true
-                Thread {
-                    try {
-                        Thread.sleep(3000) // Esperar 3 segundos
-                        statusNewCall = false
-
-                    } catch (e: InterruptedException) {
-                        e.printStackTrace()
+                binding.btReload.animate()
+                    .rotationY(90F)
+                    .setDuration(250) // Ajusta la duración según sea necesario
+                    .withEndAction {
+                        binding.btReload.animate()
+                            .rotationY(0F)
+                            .setDuration(250) // Ajusta la duración según sea necesario
+                            .withEndAction {
+                                statusNewCall = false
+                            }
                     }
-                }.start()
             }else{
                 Toast.makeText(this,"Cargando...", Toast.LENGTH_SHORT).show()
             }

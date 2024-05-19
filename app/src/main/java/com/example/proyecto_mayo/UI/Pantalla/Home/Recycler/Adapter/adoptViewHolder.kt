@@ -21,7 +21,8 @@ class adoptViewHolder(val view : View) : ViewHolder(view) {
 
           Glide.with(binding.ivAdopt.context)
               .load(adoptListModel.url)
-              .apply(RequestOptions().placeholder(R.drawable.loading))
+              .apply(RequestOptions().placeholder(R.drawable.loading1))
+              .fitCenter()
               .into(binding.ivAdopt)
 
         itemView.setOnClickListener {

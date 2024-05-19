@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
@@ -15,11 +13,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.proyecto_mayo.Data.DTO.DataDogs
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateBreedDog
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateDog
 import com.example.proyecto_mayo.R
 import com.example.proyecto_mayo.UI.Pantalla.Details.Presenter.DetailsActivity
 import com.example.proyecto_mayo.UI.Pantalla.LookFor.ViewModel.LookForViewModel
-import com.example.proyecto_mayo.UI.Pantalla.Random.ViewModel.RandomViewModel
 import com.example.proyecto_mayo.databinding.ActivityLookForBinding
 
 class LookForActivity : AppCompatActivity() {
@@ -72,7 +68,8 @@ class LookForActivity : AppCompatActivity() {
                         dog = DataDogs(url = it.toString())
                         Glide.with(binding.lookImage.context)
                             .load(it)
-                            .apply(RequestOptions().placeholder(R.drawable.loading))
+                            .apply(RequestOptions().placeholder(R.drawable.loading1))
+                            .fitCenter()
                             .into(binding.lookImage)
 
                     }

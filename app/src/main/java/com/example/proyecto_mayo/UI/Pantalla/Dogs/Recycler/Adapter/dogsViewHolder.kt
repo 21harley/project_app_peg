@@ -20,7 +20,8 @@ class dogsViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
 
         Glide.with(binding.ivDogGrid.context)
             .load(dogsListModel.url)
-            .apply(RequestOptions().placeholder(R.drawable.loading))
+            .apply(RequestOptions().placeholder(R.drawable.loading1))
+            .fitCenter()
             .into(binding.ivDogGrid)
 
         itemView.setOnClickListener {

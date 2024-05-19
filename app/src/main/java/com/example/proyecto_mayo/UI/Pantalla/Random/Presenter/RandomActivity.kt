@@ -49,19 +49,18 @@ class RandomActivity : AppCompatActivity() {
                         dog = DataDogs(url = it.toString())
                         Glide.with(binding.ImageView.context)
                             .load(it)
-                            .apply(RequestOptions().placeholder(R.drawable.loading))
+                            .apply(RequestOptions().placeholder(R.drawable.loading1))
+                            .fitCenter()
                             .into(binding.ImageView)
 
                     }
                     binding.ImageView.visibility = View.VISIBLE
-                    consulta = false
                 }
                 is StateDog.Error -> {
                     // Mostrar mensaje de error
                     binding.progressBar2.visibility = View.GONE
                     binding.ImageView.visibility = View.INVISIBLE
                     Toast.makeText(this,it.message, Toast.LENGTH_SHORT).show()
-                    consulta = false
                 }
             }
 
@@ -71,15 +70,17 @@ class RandomActivity : AppCompatActivity() {
             if(consulta==false){
                 call()
                 consulta=true
-                Thread {
-                    try {
-                        Thread.sleep(3000) // Esperar 3 segundos
-                        consulta = false
-
-                    } catch (e: InterruptedException) {
-                        e.printStackTrace()
+                binding.btReload.animate()
+                    .rotationY(90F)
+                    .setDuration(250) // Ajusta la duración según sea necesario
+                    .withEndAction {
+                        binding.btReload.animate()
+                            .rotationY(0F)
+                            .setDuration(250) // Ajusta la duración según sea necesario
+                            .withEndAction {
+                                consulta = false
+                            }
                     }
-                }.start()
             }else{
                 Toast.makeText(this,"Cargando...", Toast.LENGTH_SHORT).show()
             }
