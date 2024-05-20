@@ -79,15 +79,16 @@ class LookForActivity : AppCompatActivity() {
                 is StateBreedDog.Error -> {
                     // Mostrar mensaje de error
                     binding.progressBar4.visibility = View.GONE
-                    binding.lookImage.visibility = View.INVISIBLE
                     binding.lookImage.setImageResource(R.drawable.perro)
-                    Toast.makeText(this,"No se encontro ${queryName}", Toast.LENGTH_SHORT).show()
+                    binding.lookImage.visibility = View.VISIBLE
+
+                    Toast.makeText(this,"No se encontro1 ${queryName}", Toast.LENGTH_SHORT).show()
                     consulta = false
                 }
 
                 null -> {
                     binding.lookImage.setImageResource(R.drawable.perro)
-                    Toast.makeText(this,"No se encontro ${queryName}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"No se encontro2 ${queryName}", Toast.LENGTH_SHORT).show()
                 }
             }
 
