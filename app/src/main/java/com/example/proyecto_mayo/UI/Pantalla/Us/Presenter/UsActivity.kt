@@ -80,7 +80,7 @@ class UsActivity : AppCompatActivity() {
         binding.membersRecycler.adapter = adapterDataMembers
     }
 
-    // Evento cuando se hace click
+
     private fun membersOnItemSelected(members: DataMembers) {
         Toast.makeText(this,members.name, Toast.LENGTH_SHORT).show()
     }
@@ -99,7 +99,7 @@ class UsActivity : AppCompatActivity() {
         binding.usRecycler.adapter = adapterDataUs
     }
 
-    // Evento cuando se hace click
+
     private fun usOnItemSelected(us: DataUs) {
         Toast.makeText(this,us.name, Toast.LENGTH_SHORT).show()
     }

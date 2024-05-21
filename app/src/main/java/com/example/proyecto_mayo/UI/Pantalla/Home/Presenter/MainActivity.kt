@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
         binding.adoptRecycler.adapter = adapterDataAdopt
     }
 
-    // Evento cuando se hace click
+
     private fun adoptOnItemSelected(adopt: DataAdopt) {
         // Pasar url de la imagen recibida hacia detalles
         Intent(this, DetailsActivity::class.java).also {

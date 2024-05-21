@@ -124,7 +124,7 @@ class DogsActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
         binding.recyclerDogs.layoutManager = dogsllmanager
         binding.recyclerDogs.adapter = adapterDataDogs
     }
-    // Evento cuando se hace click
+
     private fun dogsOnItemSelected(dogs: DataDogs) {
         Intent(this, DetailsActivity::class.java).also {
             it.putExtra("dogPhoto", dogs.url)
