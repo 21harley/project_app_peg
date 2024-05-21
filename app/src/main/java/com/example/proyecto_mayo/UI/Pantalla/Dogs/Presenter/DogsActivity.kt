@@ -1,6 +1,8 @@
 package com.example.proyecto_mayo.UI.Pantalla.Dogs.Presenter
 
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -11,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.proyecto_mayo.Data.DTO.DataDogs
+import com.example.proyecto_mayo.Data.Respository.ConnectivityApp
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateDogs
 import com.example.proyecto_mayo.R
 import com.example.proyecto_mayo.UI.Pantalla.Details.Presenter.DetailsActivity
@@ -18,10 +21,12 @@ import com.example.proyecto_mayo.UI.Pantalla.Dogs.Recycler.Adapter.dogsAdapter
 import com.example.proyecto_mayo.UI.Pantalla.Dogs.ViewModel.DogsViewModel
 import com.example.proyecto_mayo.databinding.ActivityDogsBinding
 
-class DogsActivity : AppCompatActivity() {
+class DogsActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverListener  {
 
     private var dogsList:MutableList<DataDogs> = mutableListOf()
+    private lateinit var connectivityApp: ConnectivityApp
     private var statusNewCall = false
+    private var connection :Boolean=true
     private lateinit var adapterDataDogs: dogsAdapter
     private   var  viewModelHome = DogsViewModel()
     private  var dogsllmanager = GridLayoutManager(this, 3)
@@ -40,7 +45,12 @@ class DogsActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         supportActionBar?.hide()
         initRecyclerView()
+        binding.containerError.visibility = View.GONE
 
+        // Inicializar y registrar el receptor
+        connectivityApp = ConnectivityApp(this)
+        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        registerReceiver(connectivityApp, filter)
 
         viewModelHome.data.observe(this, Observer { state ->
             when (state) {
@@ -74,7 +84,7 @@ class DogsActivity : AppCompatActivity() {
         }
 
         binding.btReload.setOnClickListener {
-            if(statusNewCall==false){
+            if(statusNewCall==false && connection==true){
                 call()
                 statusNewCall=true
                 binding.btReload.animate()
@@ -89,7 +99,7 @@ class DogsActivity : AppCompatActivity() {
                             }
                     }
             }else{
-                Toast.makeText(this,"Cargando...", Toast.LENGTH_SHORT).show()
+                if (connection) Toast.makeText(this,"Cargando...", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -109,5 +119,26 @@ class DogsActivity : AppCompatActivity() {
             it.putExtra("dogPhoto", dogs.url)
             startActivity(it)
         }
+    }
+
+    override fun onNetworkConnectionChanged(isConnected: Boolean) {
+        if(isConnected){
+            connection=true
+            call()
+            binding.containerError.visibility  = View.GONE
+            binding.progressBar3.visibility = View.VISIBLE
+            binding.recyclerDogs.visibility = View.VISIBLE
+        }else{
+            connection=false
+            binding.containerError.visibility = View.VISIBLE
+            binding.progressBar3.visibility = View.GONE
+            binding.recyclerDogs.visibility = View.GONE
+            Toast.makeText(this,"Error de conexion", Toast.LENGTH_SHORT).show()
+        }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        // Desregistrar el receptor para evitar fugas de memoria
+        unregisterReceiver(connectivityApp)
     }
 }

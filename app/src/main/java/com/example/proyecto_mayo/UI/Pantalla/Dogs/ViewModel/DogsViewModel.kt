@@ -13,9 +13,6 @@ class DogsViewModel: ViewModel() {
     private val _data = MutableLiveData<StateDogs>()
     val data: LiveData<StateDogs> get() = _data
 
-    init {
-        callDogApi()
-    }
 
     fun callDogApi(){
         _data.postValue(StateDogs.Loading)
