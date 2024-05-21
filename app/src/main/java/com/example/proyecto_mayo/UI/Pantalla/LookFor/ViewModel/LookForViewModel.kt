@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.proyecto_mayo.Data.Services.DogApi.Class.DogApiClient
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateBreedDog
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateDog
+import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateDogAll
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -15,6 +16,8 @@ class LookForViewModel : ViewModel() {
     private val _data = MutableLiveData<StateBreedDog>()
     val data: LiveData<StateBreedDog?> get() = _data
 
+    private val _dataAll = MutableLiveData<StateDogAll>()
+    val dataAll: LiveData<StateDogAll?> get() = _dataAll
     fun callDogApi(razaPerro:String){
         _data.postValue(StateBreedDog.Loading)
         viewModelScope.launch(Dispatchers.IO){
@@ -31,6 +34,26 @@ class LookForViewModel : ViewModel() {
             } catch (e: Exception) {
                 Log.i("HOLA",e.message.toString())
                 _data.postValue(StateBreedDog.Error("Error service"))
+            }
+        }
+    }
+
+    fun callDogApiAll(){
+        _dataAll.postValue(StateDogAll.Loading)
+        viewModelScope.launch(Dispatchers.IO){
+            try {
+                val service = DogApiClient.service
+                val response = service.getAllBreeds()
+                val call = response.execute().body()
+                if(call!=null){
+                    Log.i("HOLA",call.toString())
+                    _dataAll.postValue(StateDogAll.Success(call))
+                }else{
+                    _dataAll.postValue(StateDogAll.Error("Error service"))
+                }
+            } catch (e: Exception) {
+                Log.i("HOLA",e.message.toString())
+                _dataAll.postValue(StateDogAll.Error("Error service"))
             }
         }
     }

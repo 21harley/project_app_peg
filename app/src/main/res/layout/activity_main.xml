@@ -156,5 +156,43 @@
         app:layout_constraintTop_toBottomOf="@+id/adopt"
         app:layout_constraintVertical_bias="1.0" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adopt"
+        app:layout_constraintVertical_bias="0.186">
+
+        <ImageView
+            android:id="@+id/iv_errorDog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/error_dog"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_reload"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/error_reload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_errorDog"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/error_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_errorDog" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
