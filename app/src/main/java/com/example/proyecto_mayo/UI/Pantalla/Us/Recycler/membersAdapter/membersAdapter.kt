@@ -10,6 +10,7 @@ import com.example.proyecto_mayo.R
 
 class membersAdapter (
     private var membersList: List<DataMembers>,
+    // Lambda
     private val onClickListener: (DataMembers) -> Unit
     ) :
     RecyclerView.Adapter<membersViewHolder>()

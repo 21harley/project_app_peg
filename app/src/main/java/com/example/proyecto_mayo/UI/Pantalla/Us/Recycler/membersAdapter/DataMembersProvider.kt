@@ -9,7 +9,7 @@ class DataMembersProvider {
     var membersList = listOf<DataMembers>(
 
         DataMembers(R.drawable.jhonperfil,"Jhon"),
-        DataMembers(R.drawable.detailfondo,"Mariano"),
+        DataMembers(R.drawable.marianoperfil,"Mariano"),
         DataMembers(R.drawable.eliseoperfil,"Eliseo"),
 
 

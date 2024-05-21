@@ -9,12 +9,8 @@ class DataUsProvider {
         var usList = listOf<DataUs>(
 
             DataUs(R.drawable.jhonalgo,"Jhon"),
-            DataUs(R.drawable.detailfondo,"Mariano"),
+            DataUs(R.drawable.marianoalgo,"Mariano"),
             DataUs(R.drawable.eliseoalgo,"Eliseo"),
-
-
-
-
             )
     }
 }

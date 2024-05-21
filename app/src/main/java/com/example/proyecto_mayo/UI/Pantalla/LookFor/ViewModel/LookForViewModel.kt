@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyecto_mayo.Data.Services.DogApi.Class.DogApiClient
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateBreedDog
-import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateDog
 import com.example.proyecto_mayo.Data.Services.DogApi.DTO.StateDogAll
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

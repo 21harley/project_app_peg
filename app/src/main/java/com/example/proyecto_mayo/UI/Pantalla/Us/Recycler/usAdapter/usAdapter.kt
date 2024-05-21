@@ -9,6 +9,7 @@ import com.example.proyecto_mayo.R
 
 class usAdapter(
     private var usList: List<DataUs>,
+    // Lambda
     private val onClickListener: (DataUs) -> Unit
     ) :
     RecyclerView.Adapter<usViewHolder>() {

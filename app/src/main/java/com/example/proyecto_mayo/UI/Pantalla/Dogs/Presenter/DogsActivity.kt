@@ -23,12 +23,17 @@ import com.example.proyecto_mayo.databinding.ActivityDogsBinding
 
 class DogsActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverListener  {
 
-    private var dogsList:MutableList<DataDogs> = mutableListOf()
+
     private lateinit var connectivityApp: ConnectivityApp
     private var statusNewCall = false
     private var connection :Boolean=true
-    private lateinit var adapterDataDogs: dogsAdapter
     private   var  viewModelHome = DogsViewModel()
+
+    // Lista que recibe recyclerView
+    private var dogsList:MutableList<DataDogs> = mutableListOf()
+    // Transformar adapter a una variable
+    private lateinit var adapterDataDogs: dogsAdapter
+    // Transformar layout manager a una variable
     private  var dogsllmanager = GridLayoutManager(this, 3)
 
     private lateinit var binding: ActivityDogsBinding
@@ -42,6 +47,7 @@ class DogsActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // Hacer invisible el contenedor de error
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         supportActionBar?.hide()
         initRecyclerView()
@@ -78,11 +84,11 @@ class DogsActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
             }
         })
 
-
+        //Boton de volver
         binding.btReturn.setOnClickListener{
             finish()
         }
-
+        //Boton de refresh
         binding.btReload.setOnClickListener {
             if(statusNewCall==false && connection==true){
                 call()
@@ -107,13 +113,18 @@ class DogsActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
         viewModelHome.callDogApi()
     }
     private fun initRecyclerView() {
+        // Indicamos cual adapter debe utilizar el recyclerView
         adapterDataDogs = dogsAdapter(
+            // Lista que es recibida
             dogsList = dogsList,
+            // Evento cuando se hace click en el item
             onClickListener = { dogs -> dogsOnItemSelected(dogs)}
         )
+        // Configuracion de bindeo
         binding.recyclerDogs.layoutManager = dogsllmanager
         binding.recyclerDogs.adapter = adapterDataDogs
     }
+    // Evento cuando se hace click
     private fun dogsOnItemSelected(dogs: DataDogs) {
         Intent(this, DetailsActivity::class.java).also {
             it.putExtra("dogPhoto", dogs.url)
@@ -121,13 +132,18 @@ class DogsActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
         }
     }
 
+    // Control de evento basado en la conectividad
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
+
+        // Mostrar recyclerView
         if(isConnected){
             connection=true
             call()
             binding.containerError.visibility  = View.GONE
             binding.progressBar3.visibility = View.VISIBLE
             binding.recyclerDogs.visibility = View.VISIBLE
+
+        // Mostrar contenedor de error
         }else{
             connection=false
             binding.containerError.visibility = View.VISIBLE

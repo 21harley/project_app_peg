@@ -20,20 +20,22 @@ import com.example.proyecto_mayo.databinding.ActivityUsBinding
 
 class UsActivity : AppCompatActivity() {
 
-    // Members Recycler
+    // recyclerView de integrantes
+    // Lista inmutable transformada a una lista mutable que recibe el recyclerView desde un provider
     private var membersList:MutableList<DataMembers> =
         DataMembersProvider.membersList.toMutableList()
-
+    // Transformar adapter a una variable
     private lateinit var adapterDataMembers: membersAdapter
-
+    // Transformar layout manager a una variable
     private  var membersllmanager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-    // Us Recycler
+    // recyclerView sobre nosotros
+    // Lista inmutable transformada a una lista mutable que recibe el recyclerView desde un provider
     private var usList:MutableList<DataUs> =
         DataUsProvider.usList.toMutableList()
-
+    // Transformar adapter a una variable
     private lateinit var adapterDataUs: usAdapter
-
+    // Transformar layout manager a una variable
     private  var usllmanager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
     private lateinit var binding: ActivityUsBinding
@@ -58,34 +60,46 @@ class UsActivity : AppCompatActivity() {
         initUsRecyclerView()
     }
     fun initComponent(){
-
+        // Boton de volver
         binding.btArrowBack.setOnClickListener{
            finish()
         }
     }
 
-    //members
+    // Integrantes
     private fun initmembersRecyclerView() {
+        // Indicamos cual adapter debe utilizar el recyclerView
         adapterDataMembers = membersAdapter(
+            // Lista que es recibida
             membersList = membersList,
+            // Evento cuando se hace click en el item
             onClickListener = { members -> membersOnItemSelected(members)},
         )
+        // Configuracion de bindeo
         binding.membersRecycler.layoutManager = membersllmanager
         binding.membersRecycler.adapter = adapterDataMembers
     }
+
+    // Evento cuando se hace click
     private fun membersOnItemSelected(members: DataMembers) {
         Toast.makeText(this,members.name, Toast.LENGTH_SHORT).show()
     }
 
-    // Us
+    // Sobre nosotros
     private fun initUsRecyclerView() {
+        // Indicamos cual adapter debe utilizar el recyclerView
         adapterDataUs = usAdapter(
+            // Lista que es recibida
             usList = usList,
+            // Evento cuando se hace click en el item
             onClickListener = { us -> usOnItemSelected(us)},
         )
+        // Configuracion de bindeo
         binding.usRecycler.layoutManager = usllmanager
         binding.usRecycler.adapter = adapterDataUs
     }
+
+    // Evento cuando se hace click
     private fun usOnItemSelected(us: DataUs) {
         Toast.makeText(this,us.name, Toast.LENGTH_SHORT).show()
     }

@@ -14,6 +14,7 @@ class usViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
 
     fun render(
         usListModel: DataUs,
+        // Pasamos funcion Lambda a viewHolder
         onClickListener: (DataUs) -> Unit,
 
         ){

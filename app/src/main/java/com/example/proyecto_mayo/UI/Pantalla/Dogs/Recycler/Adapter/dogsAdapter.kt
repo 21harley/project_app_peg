@@ -9,6 +9,7 @@ import com.example.proyecto_mayo.R
 
 class dogsAdapter(
     private var dogsList: List<DataDogs>,
+    // lambda
     private val onClickListener: (DataDogs) -> Unit,
 ) :
 RecyclerView.Adapter<dogsViewHolder>() {

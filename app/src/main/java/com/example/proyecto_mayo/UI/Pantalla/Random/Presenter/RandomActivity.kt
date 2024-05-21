@@ -38,6 +38,7 @@ class RandomActivity : AppCompatActivity(), ConnectivityReceiverListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // Hacer invisible el contenedor de error
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         supportActionBar?.hide()
 
@@ -76,6 +77,7 @@ class RandomActivity : AppCompatActivity(), ConnectivityReceiverListener {
 
         })
 
+        // Boton de Refresh
         binding.btReload.setOnClickListener {
             if(consulta==false && connection==true){
                 call()
@@ -96,6 +98,7 @@ class RandomActivity : AppCompatActivity(), ConnectivityReceiverListener {
             }
         }
 
+        // Boton de Volver
         binding.btReturn.setOnClickListener {
             finish()
         }
@@ -113,13 +116,16 @@ class RandomActivity : AppCompatActivity(), ConnectivityReceiverListener {
         viewModelRadom.callDogApi()
     }
 
+    // Evento cuando se hace click
     private fun dogsOnItemSelected(dogs: DataDogs) {
+        // Pasar url de la imagen recibida hacia detalles
         Intent(this, DetailsActivity::class.java).also {
             it.putExtra("dogPhoto", dogs.url)
             startActivity(it)
         }
     }
 
+    //// Control de evento basado en la conectividad
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
         if (isConnected){
             call()

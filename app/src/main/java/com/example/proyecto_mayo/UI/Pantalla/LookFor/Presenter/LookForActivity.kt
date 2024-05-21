@@ -45,6 +45,8 @@ class LookForActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceive
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Hacer invisible contenedor de error
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         supportActionBar?.hide()
         binding.lookImage.setImageResource(R.drawable.perro)
@@ -57,7 +59,7 @@ class LookForActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceive
 
         binding.searchBar.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                // task HERE
+
                 if (connection){
                     call(query)
                 }else{
@@ -92,7 +94,6 @@ class LookForActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceive
                             .apply(RequestOptions().placeholder(R.drawable.loading1))
                             .fitCenter()
                             .into(binding.lookImage)
-
                     }
                     binding.dogSeachView.visibility = View.VISIBLE
                     consulta = false
@@ -106,20 +107,17 @@ class LookForActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceive
                     Toast.makeText(this,"No se encontro1 ${queryName}", Toast.LENGTH_SHORT).show()
                     consulta = false
                 }
-
                 null -> {
                     binding.lookImage.setImageResource(R.drawable.perro)
                     Toast.makeText(this,"No se encontro2 ${queryName}", Toast.LENGTH_SHORT).show()
                 }
             }
-
         })
 
         //consulta para mostrar todas las razas
         viewModelLookFor.dataAll.observe(this, Observer {
             when (it) {
                 is StateDogAll.Loading -> {
-
                 }
                 is StateDogAll.Success -> {
                     Log.i("HOLA",it.info?.message?.keys.toString())
@@ -143,9 +141,8 @@ class LookForActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceive
             }else{
                 if(query!=false) Toast.makeText(this,"Error", Toast.LENGTH_SHORT).show()
             }
-
         }
-
+        // Boton de volver
         binding.btBack.setOnClickListener {
             finish()
         }
@@ -175,6 +172,8 @@ class LookForActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceive
     fun callAll(){
         viewModelLookFor.callDogApiAll()
     }
+
+    // Evento cuando se hace click
     private fun dogsOnItemSelected(dogs: DataDogs) {
         Intent(this, DetailsActivity::class.java).also {
             it.putExtra("dogPhoto", dogs.url)
@@ -182,6 +181,7 @@ class LookForActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceive
         }
     }
 
+    // Control de evento basado en la conectividad
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
         if(isConnected){
             connection=true

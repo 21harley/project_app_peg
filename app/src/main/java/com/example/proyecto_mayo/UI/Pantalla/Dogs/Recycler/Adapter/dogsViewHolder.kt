@@ -14,6 +14,7 @@ class dogsViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
 
     fun render(
         dogsListModel: DataDogs,
+        // Pasamos funcion Lambda a viewHolder
         onClickListener: (DataDogs) -> Unit,
 
         ){

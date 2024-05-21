@@ -1,10 +1,9 @@
 package com.example.proyecto_mayo.UI.Pantalla.Details.Presenter
 
-import android.content.Intent
+
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.proyecto_mayo.R
 import com.example.proyecto_mayo.databinding.ActivityDetailsBinding
-import com.example.proyecto_mayo.databinding.ActivityMainBinding
+
 
 class DetailsActivity : AppCompatActivity() {
 
