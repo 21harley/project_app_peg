@@ -29,26 +29,24 @@ class DetailsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         supportActionBar?.hide()
 
         binding.detailText.text =
-            "Cualquier dieta debe ser apropiada para el perro.a;os. Debe haber agua limpia y fresca disponible en todo momento"
+            "Cualquier dieta debe ser apropiada para el perro.años. Debe haber agua limpia y fresca disponible en todo momento"
+        //Recibimos url desde cualquier vista que contenga imagenes de perros
         val data = intent.getStringExtra("dogPhoto")
-//        Glide.with(binding.ivDog.context).load(data).into(binding.ivDog)
         Log.i("Hola",data.toString())
         Glide.with(binding.ivDog.context)
             .load(data)
             .apply(RequestOptions().placeholder(R.drawable.loading1))
             .fitCenter()
             .into(binding.ivDog)
-
+        // Boton de volver
         binding.btback.setOnClickListener{
             finish()
         }
-
-
-
     }
 }
 

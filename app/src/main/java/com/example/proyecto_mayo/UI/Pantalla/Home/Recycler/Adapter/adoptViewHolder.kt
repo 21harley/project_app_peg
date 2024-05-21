@@ -15,6 +15,7 @@ class adoptViewHolder(val view : View) : ViewHolder(view) {
 
     fun render(
         adoptListModel: DataAdopt,
+        // Pasamos funcion Lambda a viewHolder
         onClickListener: (DataAdopt) -> Unit,
 
         ){

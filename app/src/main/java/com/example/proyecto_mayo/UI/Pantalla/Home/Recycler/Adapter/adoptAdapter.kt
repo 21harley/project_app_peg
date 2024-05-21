@@ -8,6 +8,7 @@ import com.example.proyecto_mayo.Data.DTO.DataAdopt
 
 class adoptAdapter(
     private var adoptList: List<DataAdopt>,
+    // lambda
     private val onClickListener: (DataAdopt) -> Unit,
     ) :
     RecyclerView.Adapter<adoptViewHolder>() {

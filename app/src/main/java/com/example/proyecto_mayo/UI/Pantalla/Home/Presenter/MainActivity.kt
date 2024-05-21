@@ -33,11 +33,17 @@ import com.example.proyecto_mayo.databinding.ActivityMainBinding
 ////////////////////////////////////
 
 class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverListener {
-    private var adoptList:MutableList<DataAdopt> = mutableListOf()
+
+
     private lateinit var connectivityApp: ConnectivityApp
+    private var  viewModelHome = HomeViewModel()
+
+    // Lista que recibe recyclerView
+    private var adoptList:MutableList<DataAdopt> = mutableListOf()
+    // Transformar adapter a una variable
     private lateinit var adapterDataAdopt: adoptAdapter
-    private   var  viewModelHome = HomeViewModel()
-    private  var adoptllmanager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+    // Transformar layout manager a variable
+    private var adoptllmanager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +55,8 @@ class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Hacer invisible el contenedor de error
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         supportActionBar?.hide()
         initComponents()
@@ -58,6 +66,7 @@ class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
         connectivityApp = ConnectivityApp(this)
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         registerReceiver(connectivityApp, filter)
+
 
         viewModelHome.data.observe(this, Observer { state ->
             when (state) {
@@ -82,19 +91,27 @@ class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
                     Toast.makeText(this,state.message, Toast.LENGTH_SHORT).show()
                 }
             }
-        })
-
+        }
+        )
     }
 
+
     private fun initRecyclerView() {
+        // Indicamos cual adapter debe utilizar el recyclerView
         adapterDataAdopt = adoptAdapter(
+            // Lista que es recibida
             adoptList = adoptList,
+            // Evento cuando se hace click en el item
             onClickListener = { adopt -> adoptOnItemSelected(adopt)}
         )
+        // Configuracion de bindeo
         binding.adoptRecycler.layoutManager = adoptllmanager
         binding.adoptRecycler.adapter = adapterDataAdopt
     }
+
+    // Evento cuando se hace click
     private fun adoptOnItemSelected(adopt: DataAdopt) {
+        // Pasar url de la imagen recibida hacia detalles
         Intent(this, DetailsActivity::class.java).also {
             it.putExtra("dogPhoto", adopt.url)
             startActivity(it)
@@ -102,13 +119,13 @@ class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
     }
 
 
+    // Activar Botones
   private fun initComponents(){
       binding.btRandom.setOnClickListener {
           Intent(this, RandomActivity::class.java).also {
               startActivity(it)
           }
       }
-
       binding.btDogs.setOnClickListener {
           Intent(this, DogsActivity::class.java).also {
               startActivity(it)
@@ -126,12 +143,17 @@ class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverLi
       }
   }
 
+    // Control de evento basado en la conectividad
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
+
+        // Mostrar recyclerView
         if(isConnected){
             viewModelHome.callDogApi()
             binding.containerError.visibility  = View.GONE
             binding.progressBar.visibility = View.VISIBLE
             binding.adoptRecycler.visibility = View.INVISIBLE
+
+        // Mostrar contenedor de error
         }else{
             binding.progressBar.visibility = View.GONE
             binding.adoptRecycler.visibility = View.GONE
