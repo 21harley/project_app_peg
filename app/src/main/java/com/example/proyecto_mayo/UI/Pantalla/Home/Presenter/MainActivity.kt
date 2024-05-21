@@ -24,8 +24,15 @@ import com.example.proyecto_mayo.UI.Pantalla.Random.Presenter.RandomActivity
 import com.example.proyecto_mayo.UI.Pantalla.Us.Presenter.UsActivity
 import com.example.proyecto_mayo.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverListener {
+////////////////////////////////////
+// App Dogs                       //
+// Team 6  21/06/2024             //
+// Eliseo Nisias Marin Navarro    //
+// Mariano Rial                   //
+// John Harley Llanes Escobar     //
+////////////////////////////////////
 
+class MainActivity : AppCompatActivity(), ConnectivityApp.ConnectivityReceiverListener {
     private var adoptList:MutableList<DataAdopt> = mutableListOf()
     private lateinit var connectivityApp: ConnectivityApp
     private lateinit var adapterDataAdopt: adoptAdapter
